@@ -45,7 +45,7 @@ function MenuItem({ pizza }) {
                             Sold out
                         </p>
                     )}
-                    <DeleteItem pizzaId={id} />
+                    {/* <DeleteItem pizzaId={id} /> */}
                     {!soldOut && (
                         <Button onClick={handleAddToCart} type="small">
                             {" "}

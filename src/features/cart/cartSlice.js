@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-
+import { getAddress } from "../../services/apiGeocoding"
 const initialState = {
     cart: [],
     // cart: [
@@ -38,6 +38,9 @@ const cartSlice = createSlice({
             )
             item.quantity--
             item.totalPrice = item.quantity * item.unitPrice
+
+            if (item.quantity === 0)
+                cartSlice.caseReducers.deleteItem(state, action)
         },
         clearCart(state) {
             state.cart = []
